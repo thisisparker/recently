@@ -1,6 +1,5 @@
 import json
 import os
-import pathlib
 import re
 
 from datetime import datetime
@@ -68,10 +67,7 @@ def main():
 
     recently = {'movies': movies[:3], 'books': books[:3], 'concerts': concerts[:3]}
 
-    pathlib.Path('_data').mkdir(parents=True, exist_ok=True)
-
-    with open('_data/recently.json', 'w') as f:
-        json.dump(recently, f, indent=4)
+    print(json.dumps(recently, indent=4))
 
 if __name__ == '__main__':
     main()
