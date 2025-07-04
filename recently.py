@@ -42,6 +42,8 @@ def get_recent_books():
 
     books = []
     for b in feed['entries']:
+        if not b.id.startswith('Review'):
+            continue
         soup = BeautifulSoup(b.summary_detail['value'], features="html.parser")
         title_and_author = soup.find('img')['alt']
         title, author = title_and_author.rsplit(' by ')
