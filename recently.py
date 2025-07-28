@@ -1,3 +1,12 @@
+# /// script
+# requires-python = ">=3.12"
+# dependencies = [
+#     "bs4",
+#     "feedparser",
+#     "gspread",
+# ]
+# ///
+
 import json
 import os
 import re
