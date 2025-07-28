@@ -33,7 +33,12 @@ def get_recent_concerts():
 
     shows = []
     for r in records:
-        shows.append({'artists': r['artists'].replace(',', ' and'), 'venue':r['venue']})
+        artist_list = [a.strip() for a in r['artists'].split(',')]
+        if len(artist_list) < 3:
+            artists = ' and '.join(artist_list)
+        else:
+            artists = ', '.join(artist_list[:len(artist_list)-1]) + ', and ' + artist_list[-1]
+        shows.append({'artists': artists, 'venue':r['venue']})
 
     return shows
 
