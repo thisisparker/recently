@@ -61,7 +61,9 @@ def get_recent_books():
         soup = BeautifulSoup(b.summary_detail['value'], features="html.parser")
         title_and_author = soup.find('img')['alt']
         title, author = title_and_author.rsplit(' by ')
-        books.append({'title':title, 'author':author})
+        book = {'title': title, 'author': author}
+        if book not in books:
+            books.append(book)
 
     return books
 
